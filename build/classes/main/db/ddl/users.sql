@@ -1,0 +1,5 @@
+DROP USER IF EXISTS tutorial@127.0.0.1;
+CREATE USER tutorial@127.0.0.1 IDENTIFIED BY "password";
+# GRANT EXECUTE ON PROCEDURE tutorial.insertPerson TO 'tutorial'@'127.0.01';
+GRANT INSERT, UPDATE, DELETE ON tutorial.* TO 'tutorial'@127.0.0.1;
+FLUSH PRIVILEGES;
