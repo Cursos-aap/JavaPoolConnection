@@ -41,6 +41,14 @@ public class DbPoolConnection {
     }
     
     protected void destroyPool(){
+        if(poolDataSource != null){
+            try {
+                poolDataSource.getPooledConnection().close();
+            } catch (SQLException e) {
+                System.err.println("An error ocurred while closing the pool");
+                System.out.println(e.toString());
+            }
+        }
         poolDataSource = null;
     }
     
